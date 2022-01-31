@@ -1,3 +1,19 @@
+这个网站是用来存放我的markdown笔记，利用GitHub Pages搭建，直接使用官方主题，只要上传markdown就可以自动转换成html，相比在GitHub仓库，这个网站速度要快一点，观感也要好。
+
+如果也想尝试，先建立一个pages仓库，参照我的[仓库](https://github.com/csjue/csjue.github.io)把_config.yml index.md修改。
+
+[Markdown](_posts/2022-01-30-markdown.md)
+
+[JavaScript](_posts/2020-9-25-JavaScript.md)
+
+[算法](_posts/2020-9-25-algorithms.md)
+
+[SQL](_posts/2020-9-25-SQL.md)
+
+[csjue的力扣](_posts/2020-9-25-leetcode.md)
+
+联系方式 csjue_sz@foxmail.com
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/Shang2017/Shang2017.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
