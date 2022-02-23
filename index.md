@@ -4,7 +4,7 @@
 
 [Markdown](_posts/2022-01-30-markdown.md)
 
-[JavaScript](_posts/2020-9-25-JavaScript.md)
+[c++](_posts/2022-01-30-cpp_learning.md)
 
 [算法](_posts/2020-9-25-algorithms.md)
 
