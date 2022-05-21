@@ -2,6 +2,22 @@
 
 ## help 
 
+1.bin/git-proxy.sh
+   exec corkscrew 192.168.1.132 800 $* $HOME/.git-proxy.auth
+2. $HOME/.git-proxy.auth
+   ubuntu:Frskyubuntu
+3. git config
+    user.name=Shang2017
+    user.email=shang@frsky-rc.comls
+    http.sslverify=false
+    http.proxy=192.168.1.132:800
+    https.sslverify=false
+    https.proxy=192.168.1.132:800
+    color.ui=auto
+core.gitproxy=/home/ubuntu/bin/git-proxy.sh
+
+
+
 
 1. confirm proxy: wget -q www.google.com && echo "OK" || echo "KO"
 2. git confirm: git ls-remote git://git.openembedded.org/openembedded-core && echo "OK" || echo "KO"
