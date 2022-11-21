@@ -1,0 +1,26 @@
+##expresslrs configure 安装
+1. npm / node-gyp 设成7.1.2
+2? npm config set python "C:\Python37\python.exe"
+3? npm config set msbuild_path="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild.exe"
+4. yarn install --frozen-lockfile
+5. cnpm install
+6. yarn start
+
+
+
+listray: 双击ctrl
+
+##安装 platfomio
+1.去除python路径
+2.在user/adminstator/pip/中建pip.ini
+  [global]
+  index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+  [install]
+  trusted-host=mirrors.aliyun.com
+3.打开代理，可以安装成功
+
+##编译esp32
+1.需要下载环境，这时关闭代理
+2. pio platform install espressif32
+
+                                                                                                                                                                                                                     platform路径

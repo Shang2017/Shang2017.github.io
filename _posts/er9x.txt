@@ -1,0 +1,188 @@
+Freelink步骤：
+1. bmp 300x300
+2. 加入bitmap资源  加入现有项
+3. 加入dialog资源
+4. dialog生成cpp
+   控件变量
+5. FreeLinkDlg.h 增加dlg头文件
+   FreeLinkDlg.cpp 增加dlg变量   Sensor_Pressure                m_Sensor_Pressure;
+   OnDeviceChange（）   m_Sensor_Pressure.CloseTimers();
+   Tab_initialization（） m_Sensor_CurrentL.Create(IDD_Sensor_Pressure, &m_ProductTab);
+                           m_Sensor_CurrentL.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), 
+		                      tabRect.Height(), SWP_HIDEWINDOW);
+   Tab_SensorWindowHide（）  m_Sensor_CurrentL.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(),
+			      tabRect.Height(), SWP_HIDEWINDOW);    
+   Tab_SensorChoice（）                       
+6. tree
+    ProductTree_initialization() 
+       hArtItem = m_ProductTree.InsertItem(_T("Pressure"), 2, 2, hCataItem, TVI_LAST);
+	     m_ProductTree.SetItemData(hArtItem, 15); TreeNodeHandle[15] = hArtItem;  
+    OnTvnSelchangedProducttree()  
+      case 15:
+		    if (flag_Tab_Sensors == 0)Tab_ShowSensors();
+		     flag_Tab_Sensors = 1;
+		     flag_Tab_Receivers = 0;
+		     flag_Tab_Radios = 0;
+		     m_ProductTab.SetCurSel(16);
+		     Tab_SensorChoice(16);
+    Tab_SensorChoice()
+          case 16:
+		         Tab_SensorWindowHide();
+
+		         m_Sensor_Pressure.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(),
+			       tabRect.Height(), SWP_SHOWWINDOW);
+		         m_ProductTree.SelectItem(TreeNodeHandle[18]);//显示指定树形节点
+6. 协议处理：
+  m_FreeLink_Sensor_Pressure：全局工程指针，不用初始化
+  Sensor_Pressure_handle 本对话框指针          Sensor_Pressure_handle = m_Monitoring.GetParent()->GetParent()->GetParent();
+  m_Progressone_Pressure 进度条句柄       OnInitDialog（）       m_Progressone_Pressure = (CProgressCtrl*)GetDlgItem(IDC_Progress);
+ (1) OnBnClickedMonitoring（）
+     Button_initialization（）
+     OnTimer（）
+     OnBnClickedConfigure()  共用
+（2）   sensor_read（）
+  
+        
+                  
+    
+            
+
+129.226.131.138  ubuntu Szm123~!
+
+void markallBad()
+{
+  row_address_t row;
+  int ret;
+  TRACE("MARKBAD");
+  for(int j=0;j<SPI_NAND_BLOCKS_PER_LUN;j++)
+  {
+     for(int i=0;i<64;i++)
+     {
+        row.block = j;
+        row.page=i;
+        ret = page_read(row);
+        if(ret != SPI_NAND_RET_OK)
+        {
+
+            spi_nand_block_mark_bad(row);
+            TRACE("mARK BAD row=%d",row.block);
+            break;
+        }
+     }
+
+
+  }
+
+}
+
+
+
+mklittlefs.exe -c data --size 16252968 --page 256 --block 4096 ext-spiffs.bin
+
+esptool-3.0\esptool.py --chip esp32 --port com18 --baud 115200 write_flash 0x80000 ext-lfsvoice.bin --flash_mode dio --flash_size 16MB --spi-connection 13,12,15,2,0
+
+
+
+//register 0:  0c  hallconf-0xc gain:0 res:0
+//1:         0xc380  burst-rat:0 xyz, int  spi
+//2:      0x07e5  osr:1 flt:1  res:3  osr2:0
+//4: 0x4000    offsetx
+//5: 0x4000    offsety
+//6: 0x4000    0ffsetz
+
+
+//0x1e  memory store
+//exit
+//start burst 0x1e 1.8ms
+//read measurement   0x4e
+
+
+
+
+#CRSF协议：
+  1.  sync 
+  Radio.TXdataBuffer[0] = SYNC_PACKET & 0b11;
+  Radio.TXdataBuffer[1] = FHSSgetCurrIndex();
+  Radio.TXdataBuffer[2] = NonceTX;
+  Radio.TXdataBuffer[3] = (Index << 6) + (TLMrate << 3) + (SwitchEncMode << 1);
+  Radio.TXdataBuffer[4] = UID[3];
+  Radio.TXdataBuffer[5] = UID[4];
+  Radio.TXdataBuffer[6] = UID[5];
+  // For model match, the last byte of the binding ID is XORed with the inverse of the modelId
+  if (!InBindingMode && config.GetModelMatch())
+  {
+    Radio.TXdataBuffer[6] ^= (~crsf.getModelID()) & MODELMATCH_MASK;
+  }
+  2. NextPacketIsMspData
+        Radio.TXdataBuffer[0] = MSP_DATA_PACKET & 0b11;
+      Radio.TXdataBuffer[1] = packageIndex;
+      Radio.TXdataBuffer[2] = maxLength > 0 ? *data : 0;
+      Radio.TXdataBuffer[3] = maxLength >= 1 ? *(data + 1) : 0;
+      Radio.TXdataBuffer[4] = maxLength >= 2 ? *(data + 2) : 0;
+      Radio.TXdataBuffer[5] = maxLength >= 3 ? *(data + 3): 0;
+      Radio.TXdataBuffer[6] = maxLength >= 4 ? *(data + 4): 0;
+  3. GenerateChannelDataHybrid8
+            Buffer[0] = RC_DATA_PACKET & 0b11;
+            Buffer[1] = ((crsf->ChannelDataIn[0]) >> 3);
+            Buffer[2] = ((crsf->ChannelDataIn[1]) >> 3);
+            Buffer[3] = ((crsf->ChannelDataIn[2]) >> 3);
+            Buffer[4] = ((crsf->ChannelDataIn[3]) >> 3);
+            Buffer[5] = ((crsf->ChannelDataIn[0] & 0b110) << 5) |
+                        ((crsf->ChannelDataIn[1] & 0b110) << 3) |
+                        ((crsf->ChannelDataIn[2] & 0b110) << 1) |
+                        ((crsf->ChannelDataIn[3] & 0b110) >> 1);
+            Buffer[6] =
+             TelemetryStatus << 7 |
+        // switch 0 is one bit sent on every packet - intended for low latency arm/disarm
+            CRSF_to_BIT(crsf->ChannelDataIn[4]) << 6 |     /////1号开关
+        // tell the receiver which switch index this is
+            bitclearedSwitchIndex << 3 |                  ////第几号开关
+        // include the switch value                       ///值
+             value;
+  
+     GenerateChannelDataHybridWide
+        buffer[6]   b/tel| b/sw0| sw6
+////////////////////////////////////////////////////////////////////
+int16_t checkIncDec16( int16_t val, int16_t i_min, int16_t i_max, uint8_t i_flags)
+   val:now value
+   bool: i_min=0 i_max=1
+  i_flags & INCDEC_SWITCH 
+  eeDirty(i_flags & (EE_GENERAL|EE_MODEL));
+int8_t checkIncDecSwitch( int8_t i_val, int8_t i_min, int8_t i_max, uint8_t i_flags)
+     i_val = switchUnMap( i_val ) ;
+     return switchMap( checkIncDec16(i_val,i_min,i_max,i_flags) ) ;
+     
+     i_val :键值编码
+     switchunmap[ival]   :  在switchmap中的序号
+     序号加减
+     获取序号中的键值编码  switchmap
+     
+int8_t phyStick[4] ;  左右摇杆值
+const char stickScramble[] =         手形对应的摇杆编号
+{
+  0, 1, 2, 3,
+  0, 2, 1, 3,
+  3, 1, 2, 0,
+  3, 2, 1, 0
+} ;   
+
+uint8_t modeFixValue( uint8_t value )  根据当前手形， aetr中摇杆对应的采样编号+1
+                                  采样顺序   0-左边水平  1-左边垂直  2-右边垂直   3-右边水平
+                                  value： 0 -a  1-e  2-t  3-r      手形0:aetr
+                                  
+程序里的0-3永远是aetr, 要根据手形获取正确的采样值
+                                  
+                                  
+int16_t getRawTrimValue( uint8_t phase, uint8_t idx )  flightmode 下的trim值 phase=0 无flight flight从1开始计数
+uint32_t getTrimFlightPhase( uint8_t phase, uint8_t idx ) 看不懂
+                                  
+
+#define MAX_SKYDRSWITCH 34               true      常量开关  正值t 负值f
+>   MAX_SKYDRSWITCH  是物理按键
+
+
+int16_t scaleAnalog( int16_t v, uint8_t channel )
+1.  v 为正负百分数
+2.   g_eeGeneral.calib？为正百分数
+3.  输出最大值 正负1024
+

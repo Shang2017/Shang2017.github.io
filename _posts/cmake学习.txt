@@ -1,0 +1,9 @@
+cmake . -LH
+
+
+1. ¿Õ¹¤³Ì
+2. uhal:log  
+
+
+==test====   ONLY CAN UN ON LINUX
+cmake .. -DENABLE_UMATH_TESTS=ON && make check

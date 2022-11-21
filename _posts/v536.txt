@@ -1,0 +1,46 @@
+lt6911c 指令
+网卡源码
+
+
+spilcdenh.ko
+wheelkey.ko
+ath6kl_usb.ko
+cfg80211.ko
+lt6911c.ko
+
+
+
+
+## virtualbox连外网
+- 设置nat
+- sudo ifconfig eth0 192.168.4.120
+- sudo route add default gw 192.168.4.1 eth0
+- sudo vi /etc/resolv.conf  nameserver 8.8.8.8
+
+
+mount -t vboxsf shareV536 /mnt/share                                                                                                                                                                                                                                     
+sdk/ lindies-v536/
+source build/envirment.sh
+lunch 1
+
+vim soft/../tina.mk 打开 vdec 和 virenc
+mkall      make -j4 V=s
+mkapp
+
+虚拟机需要设置成桥接模式
+/etc/exports
+sudo exportfs -afv
+
+embeded
+ifconfig eth0 192.168.4.122
+mount -o port=2049,nolock,proto=tcp -t nfs 192.168.4.121:/home/lindenis/mmm /mmm
+
+
+          mount /dev/mmlk1 /mnt/extsd
+          
+          sudo ifconfig eth0 192.168.4.121
+sudo ifconfig eth0 192.168.4.121
+sudo route add default gw 192.168.4.1
+192.168.3.168
+
+          
