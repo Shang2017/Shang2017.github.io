@@ -1,4 +1,5 @@
 #Vscode and STM32
+https://github.com/MaJerle/stm32-cube-cmake-vscode
 
 ## JlinkServer and stlink openocd
 ### JlinkServer
