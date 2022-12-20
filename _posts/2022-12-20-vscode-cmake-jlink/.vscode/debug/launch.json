@@ -1,0 +1,141 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug OPENOCD -STLinker-V2",
+            "cwd": "${workspaceRoot}",
+            "type": "cortex-debug",
+           // "executable": "${command:cmake.launchTargetPath}", //or fixed file path:build/proj.elf
+            "executable": "./build/Debug/glass.elf",
+            "request": "launch",  //Use "attach" to connect target with elf download
+            "servertype": "openocd",
+            //"device": "STM32G071",
+            "interface": "swd",
+            "configFiles":[
+                "I:/github/WORK/Alberto/openocd/share/openocd/scripts/interface/stlink-v2.cfg",    //使用ST-LINK
+                "I:/github/WORK/Alberto/openocd/share/openocd/scripts/target/stm32g0x.cfg",      //根据芯片型号更改/stm32f1x.cfg
+            ],
+            "runToMain": true,
+            //"serialNumber": "",
+            //"runToEntryPoint": "main",
+            "svdFile": "./stm32g071.svd",
+            //"v1":false,
+            //"showDevDebugOutput": "both",
+            //will get automatically detected if STM32CubeIDE is installed to default directory
+            //or it can be manually provided if necessary
+
+            //"serverpath": "L:\\ST\\STM32CubeIDE_1.6.1\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.win32_2.0.100.202109301221\\tools\\bin\\ST-LINK_gdbserver.exe",
+            //"armToolchainPath":"J:\\ChibiStudio1\\ChibiStudio\\tools\\GNU Tools ARM Embedded\\10.2 2020q4\\bin",
+            //"stm32cubeprogrammer": "L:\\ST\\STM32CubeProg\\bin",
+
+        },
+        {
+            "name": "Debug STLINK -STLinker-V2",
+            "cwd": "${workspaceRoot}",
+            "type": "cortex-debug",
+            //"executable": "${command:cmake.launchTargetPath}", //or fixed file path:build/proj.elf
+            "executable": "./build/Debug/glass.elf",
+            "request": "launch",  //Use "attach" to connect target with elf download
+            "servertype": "stlink",
+            //"device": "STM32G071",
+            //"interface": "swd", 
+           // "runToMain": true,
+            //"postStartSessionCommands": ["monitor reset"],
+                      
+            //"serialNumber": "",
+            //"runToEntryPoint": "main",
+            "svdFile": "./stm32g071.svd",
+           // "v1":false,
+            "showDevDebugOutput": "both",
+            //will get automatically detected if STM32CubeIDE is installed to default directory
+            //or it can be manually provided if necessary
+
+            "serverpath": "L:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.win32_2.0.100.202109301221/tools/bin/ST-LINK_gdbserver.exe",
+            "armToolchainPath":"J:/ChibiStudio1/ChibiStudio/tools/GNU Tools ARM Embedded/10.2 2020q4/bin",
+            "stm32cubeprogrammer": "L:/ST/STM32CubeProg/bin",
+
+        },        
+        {
+            "name": "Debug Jlink",
+            "cwd": "${workspaceRoot}",
+            "type": "cortex-debug",
+            //"executable": "${command:cmake.launchTargetPath}", //or fixed file path:build/proj.elf
+            "executable": "./build/Debug/glass.elf",
+            "request": "launch",  //Use "attach" to connect target with elf download
+            "servertype": "jlink",
+            //"serverpath":"L:\\ST\\STM32CubeIDE_1.6.1\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.externaltools.jlink.win32_2.0.100.202110251254\\tools\\bin\\JLinkGDBServerCL.exe",
+            "serverpath": "L:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.win32_2.0.100.202109301221/tools/bin/ST-LINK_gdbserver.exe",
+            "device": "STM32G071G8",
+            "interface": "swd", 
+            //"runToMain": true,
+            //"postStartSessionCommands": ["monitor reset"],
+                      
+           // "serialNumber": "",
+            //"runToEntryPoint": "main",
+            //"svdFile": "./stm32g071.svd",
+           // "v1":false,
+            //"showDevDebugOutput": "both",
+            //will get automatically detected if STM32CubeIDE is installed to default directory
+            //or it can be manually provided if necessary
+
+            //"serverpath": "L:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.win32_2.0.100.202109301221/tools/bin/ST-LINK_gdbserver.exe",
+            "armToolchainPath":"J:/ChibiStudio1/ChibiStudio/tools/GNU Tools ARM Embedded/10.2 2020q4/bin",
+            //"stm32cubeprogrammer": "L:/ST/STM32CubeProg/bin",
+
+        },  
+        {
+            "name": "J-Link (M4)",
+            "type": "cppdbg",
+            "request": "launch",
+            //"program": "${workspaceFolder}/build/${config:program_file}",
+            "program": "./build/Debug/glass.elf",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            
+            "windows": {
+                "miDebuggerPath": "arm-none-eabi-gdb.exe",
+                "debugServerPath": "C:/Program Files (x86)/SEGGER/JLink_V644h/JLinkGDBServerCL.exe",
+                //"debugServerPath": "L:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.jlink.win32_2.0.100.202110251254/tools/bin/JLinkGDBServerCL.exe",
+            },
+            
+           
+            "logging": {
+                "exceptions": true,
+                "trace": false,
+                "traceResponse": false,
+                "engineLogging": false
+            },
+            "miDebuggerServerAddress": "localhost:2331",
+            "debugServerArgs": "-select USB -device STM32G071G8 -if SWD -halt -ir -speed auto -LocalhostOnly -nologtofile -JLinkScriptFile ${workspaceFolder}/.vscode/Reset.JLinkScript",
+            //"debugServerArgs": "-select USB -device STM32G071G8 -if SWD -halt -ir -speed auto -LocalhostOnly -nologtofile",
+            "serverStarted": "Connected to target",
+            "filterStderr": false,
+            "targetArchitecture": "arm",
+            "customLaunchSetupCommands": [
+                {"text":"-list-features"}
+            ],
+            "setupCommands": [
+                { "text":"cd ${workspaceFolder}" },
+                { "text":"file L:/ST/project/glass/build/Debug/glass.elf"},
+                { "text":"set logging overwrite on"},
+                { "text":"set logging file debug-arm.log"},
+                { "text":"set logging off"},
+                { "text":"exec-file ./build/Debug/glass.elf" },
+                { "text":"symbol-file ./build/Debug/glass.elf" },
+                { "text":"target remote localhost:2331" },
+                { "text":"monitor reset" },
+                { "text":"monitor halt"},
+                { "text":"load"}，
+                { "text":"set $pc=Reset_Handler" },
+                { "text":"b main" },                
+            ],
+        },
+    ]
+}
