@@ -7,3 +7,64 @@ cmake . -LH
 
 ==test====   ONLY CAN UN ON LINUX
 cmake .. -DENABLE_UMATH_TESTS=ON && make check
+
+## cmake macro and function
+set(aa "ABC")
+macro mac(arg)
+message("${arg}")
+set(arg "abc")
+message("${arg}")
+end
+
+function fun(arg)
+message("${arg}")
+set(arg "abc")
+message("${arg}")
+end
+
+mac(${aa})  ??aa??ABC
+fun(${aa}) ??aa?abc
+
+mac(aa)   ????aa
+fun(aa)  ???aa "abc"
+==================================================================================
+set(var "ABC")
+
+macro(Moo arg)
+  if (arg STREQUAL "ABC")
+    message("arg1 = ${arg}")
+  endif()
+  if (${arg} STREQUAL "ABC")
+    message("arg2 = ${arg}")    #####
+  endif()
+endmacro()
+message("=== Call macro ===")
+Moo(${var})
+
+function(Foo arg)
+  if (arg STREQUAL "ABC")
+    message("arg1 = ${arg}")    #####
+  endif()
+  if (${arg} STREQUAL "ABC")
+    message("arg2 = ${arg}")  ####
+  endif()
+endfunction()
+message("=== Call function ===")
+Foo(${var})
+======================================================================
+??macro
+if(argv0)                         # ????
+if(${argv0})                      # ????
+if(defined argv0)                 # ????
+if(defined ${argv0})              # ????
+
+## set( PARENT_SCOP)
+??cMakeLists.txt???????????????????????????
+set( BAR "This is bar." ) #<-- set in this scope
+set( BAR ${BAR} PARENT_SCOPE ) #<-- set in the parent scope too
+
+## include(OPTION)
+
+ ????????
+ 
+
