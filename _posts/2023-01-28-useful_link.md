@@ -33,3 +33,38 @@ https://www.cnblogs.com/iini/p/14174427.html
 ## 设备树
 https://blog.csdn.net/u010783226/article/details/113500449
 https://blog.csdn.net/songyulong8888/article/details/78115512
+
+## cs-book
+https://gitee.com/ForthEspada
+密码:a123654
+
+
+## 地面站
+https://github.com/wustyuyi/NGroundStation  无名地面站
+https://gitcode.net/mirrors/DroidPlanner/Tower?utm_source=csdn_github_accelerator    tow
+
+## 手持云台
+https://www.eet-china.com/news/201608041559.html
+
+https://www.rcgroups.com/forums/showthread.php?1815204-Simple-AlexMos-8bit-brushless-gimbal-controller-from-Viacopter
+https://blog.csdn.net/jxw_flyzero/article/details/82734585
+https://github.com/nixwang/simpleBGC32-source
+https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-23953636904.2.fd5dc61e6OJQcw&id=654489155485
+https://www.basecamelectronics.com/downloads/8bit/
+https://www.amobbs.com/thread-5749481-1-1.html    源码    已下载
+https://blog.csdn.net/weixin_30252155/article/details/94942818   解析 
+https://www.cnblogs.com/yueze/p/7107235.html
+
+https://www.cnblogs.com/ningmeng484/p/12056935.html
+https://max.book118.com/html/2018/0311/156821465.shtm
+
+https://blog.csdn.net/loop222/article/details/115488539   simpleFOC
+
+
+
+
+## 重要
+
+https://blog.csdn.net/one__leaf/article/details/128954335
+
+
