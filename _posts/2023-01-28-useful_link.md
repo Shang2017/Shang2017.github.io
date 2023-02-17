@@ -67,4 +67,8 @@ https://blog.csdn.net/loop222/article/details/115488539   simpleFOC
 
 https://blog.csdn.net/one__leaf/article/details/128954335
 
+## usb学习
+https://so.csdn.net/so/search?q=USB%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3&t=blog&u=weiaipan1314
+
+
 
