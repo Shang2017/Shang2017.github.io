@@ -71,4 +71,13 @@ https://blog.csdn.net/one__leaf/article/details/128954335
 https://so.csdn.net/so/search?q=USB%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3&t=blog&u=weiaipan1314
 
 
+## ESC
+https://github.com/AlkaMotors/AM32-MultiRotor-ESC-firmware      
+https://github.com/FETtec/ESC-Configurator
+https://github.com/AlkaMotors
+
+
+
+
+
 
