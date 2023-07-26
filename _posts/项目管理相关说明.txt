@@ -1,0 +1,47 @@
+##网络地址：
+git:     https://dev.frsky-rc.com     
+                                                   内部http://192.168.9.95:3000/
+         user:kunye     YVt0nFvj9M
+         user:OdooDev   WcTb0Nr2b6      
+         shang       Ashang2002                                             
+                                                   
+                                                    
+svn:  http://221.228.240.132:8011/svn/xxx          内部http://192.168.9.95:8011/
+
+远程密码 Administrator  pass:Frshang
+
+redmine: http://221.228.240.132:10083/             内部http://192.168.9.95:10083/redmine/
+
+##用户密码:
+
+songtiecheng    Dongdasongtiecheng </br>
+niejingnan      Dongdaniejingnan</br>
+hujing          Dongdahujing</br>
+
+chengxi         Dongdachengxi</br>
+dingzixuan      Dongdadingzixuan</br>
+liziyuan        Dongdaliziyuan</br>
+xuhan           Dongdaxuhan</br>
+xulu            Dongdaxulu</br>
+zhuxiyao        Dongdazhuxiyao</br>
+
+##项目名称:
+
+蓝牙5.0透传(bluetooth5): zhuxiyao </br>
+FPGA平台zynq:   dingzixuan / xulu </br>
+数传900m(tx900m): liziyuan / xuhan </br>
+数传2.4G(tx2p4g): chengxi </br>
+
+##相关资料
+
+在各项目的document下
+
+##SVN工作:
+
+希望安装SVN客户端,先将空项目下载下来，然后再在此目录下工作。每天或在重要节点及时提交，提交及代码注释一定要详细明白。
+
+##REDMIN工作：
+
+希望各位可将项目工作分解成较详细的issue,工作中每天统计工作量，并在项目讨论区中描述一天工作中重要事项。
+
+https://git.frsky-rc.com:8443/
