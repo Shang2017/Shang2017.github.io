@@ -64,6 +64,14 @@ xx:yy(x,y,z) 传输的参数是self,x,y,z
   yarn config set ELECTRON_MIRROR http://npm.taobao.org/mirrors/electron/
 
 
+## ESP32 arduino
+1. GITHUB下载
+2. get.exe出错，需要将chcp 1252,改变字符页
+3. 直接下载
+
+
+
+
 
 
 
